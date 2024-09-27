@@ -1,0 +1,10 @@
+#env
+.env
+
+#Os generate files
+.DS_Store
+Thumbs.db
+
+
+# Log
+*.log
