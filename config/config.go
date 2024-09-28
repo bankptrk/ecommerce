@@ -46,3 +46,7 @@ func SetupDB() {
 func GetUserCollection() *mongo.Collection {
 	return UserCollection
 }
+
+func GetProductCollection() *mongo.Collection {
+	return ProductCollection
+}

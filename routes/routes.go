@@ -8,11 +8,15 @@ import (
 )
 
 func SetupUserRoutes(app *fiber.App) {
-	app.Post("/register", controller.RegisterUser)
+	app.Post("/users/register", controller.RegisterUser)
 
-	app.Post("/login", controller.LoginUser)
+	app.Post("/users/login", controller.LoginUser)
 
-	app.Use("/user", middleware.AuthRequired)
+	app.Post("/admin/product", controller.CreateProduct)
+
+	app.Use(middleware.AuthRequired)
 
 	app.Get("/user", controller.GetUsers)
+	app.Get("/users/products", controller.SearchProducts)
+	app.Get("/users/search", controller.SearchProductByQuery)
 }
