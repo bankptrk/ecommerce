@@ -6,6 +6,7 @@ go run .
 ```
 
 - REGISTER (POST METHOD)
+
 http://localhost:8000/users/register
 
 ```
