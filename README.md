@@ -1,7 +1,6 @@
 #Starter Project
-
+#DATABASE MONGO
 ```
-docker-compose up -d
 go run .
 ```
 
