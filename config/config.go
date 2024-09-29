@@ -13,40 +13,54 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
-var Client *mongo.Client
-var UserCollection *mongo.Collection
-var ProductCollection *mongo.Collection
+var client *mongo.Client
 
 func SetupDB() {
+
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
 	MONGO_URI := os.Getenv("MONGO_URI")
+
 	clientOptions := options.Client().ApplyURI(MONGO_URI)
-	Client, err = mongo.NewClient(clientOptions)
+
+	client, err = mongo.NewClient(clientOptions)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error creating MongoDB client: %v", err)
 	}
+
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	err = Client.Connect(ctx)
+
+	err = client.Connect(ctx)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error connecting to MongoDB: %v", err)
 	}
-	err = Client.Ping(ctx, readpref.Primary())
+
+	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Could not ping MongoDB: %v", err)
 	}
-	fmt.Println("Connect Database Successful")
-	UserCollection = Client.Database("ecommerce").Collection("users")
-	ProductCollection = Client.Database("ecommerce").Collection("products")
+
+	fmt.Println("Successfully connected to MongoDB")
+}
+
+func DisconnectDB() {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	if err := client.Disconnect(ctx); err != nil {
+		log.Fatalf("Error disconnecting from MongoDB: %v", err)
+	}
+	fmt.Println("Disconnected from MongoDB")
 }
 
 func GetUserCollection() *mongo.Collection {
-	return UserCollection
+	return client.Database("ecommerce").Collection("users")
 }
 
 func GetProductCollection() *mongo.Collection {
-	return ProductCollection
+	return client.Database("ecommerce").Collection("products")
 }

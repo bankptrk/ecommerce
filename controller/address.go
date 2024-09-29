@@ -63,7 +63,7 @@ func AddAddress(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusCreated).JSON(fiber.Map{"message": "Add address successfully!"})
 }
 
-func EditHomeAddress(c *fiber.Ctx) error {
+func EditBillingAddress(c *fiber.Ctx) error {
 	user_id := c.Query("id")
 	if user_id == "" {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"Error": "Invalid Search Index"})
@@ -92,7 +92,7 @@ func EditHomeAddress(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{"message": "Update address successful"})
 }
 
-func EditHomeAddress2(c *fiber.Ctx) error {
+func EditShippingAddress(c *fiber.Ctx) error {
 	user_id := c.Query("id")
 	if user_id == "" {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"Error": "Invalid Search Index"})

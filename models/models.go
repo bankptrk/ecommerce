@@ -13,9 +13,9 @@ type User struct {
 	Email           string             `json:"email" validate:"required"`
 	Phone           string             `json:"phone" validate:"required"`
 	Password        string             `json:"password" validate:"required"`
-	Create_At       int64              `json:"create_at"`
-	Update_At       int64              `json:"update_at"`
-	UserCart        []ProductUser      `bson:"user_cart" json:"user_cart"`
+	Create_At       time.Time          `json:"create_at"`
+	Update_At       time.Time          `json:"update_at"`
+	UserCart        []ProductUser      `json:"user_cart" bson:"user_cart"`
 	Address_Details []Address          `json:"address" bson:"address"`
 	Order_Status    []Order            `json:"orders" bson:"orders"`
 	Role            string             `json:"role" bson:"role"`
@@ -32,7 +32,7 @@ type Address struct {
 type Product struct {
 	Product_ID   primitive.ObjectID `bson:"_id"`
 	Product_Name string             `json:"product_name"`
-	Price        int64              `json:"price"`
+	Price        float64            `json:"price"`
 	Rating       uint               `json:"rating"`
 	Image        string             `json:"image"`
 }
@@ -40,7 +40,7 @@ type Product struct {
 type ProductUser struct {
 	Product_ID   primitive.ObjectID `bson:"_id"`
 	Product_Name string             `json:"product_name" bson:"product_name"`
-	Price        int                `json:"price" bson:"price"`
+	Price        float64            `json:"price" bson:"price"`
 	Rating       uint               `json:"rating" bson:"rating"`
 	Image        string             `json:"image"`
 }
@@ -49,8 +49,8 @@ type Order struct {
 	Order_ID       primitive.ObjectID `bson:"_id"`
 	Order_Cart     []ProductUser      `json:"order_list" bson:"order_list"`
 	Order_At       time.Time          `json:"order_at" bson:"order_at"`
-	Price          int                `json:"total_price" bson:"total_price"`
-	Discount       int                `json:"discount" bson:"discount"`
+	Price          float64            `json:"total_price" bson:"total_price"`
+	Discount       float64            `json:"discount" bson:"discount"`
 	Payment_Method Payment            `json:"payment_method" bson:"payment_method"`
 }
 

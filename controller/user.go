@@ -4,6 +4,7 @@ import (
 	"bank/config"
 	"bank/models"
 	"context"
+	"log"
 	"os"
 	"time"
 
@@ -67,8 +68,8 @@ func createUser(c *fiber.Ctx, user *models.User) error {
 	}
 
 	user.ID = primitive.NewObjectID()
-	user.Create_At = time.Now().Unix()
-	user.Update_At = time.Now().Unix()
+	user.Create_At = time.Now()
+	user.Update_At = time.Now()
 	user.UserCart = make([]models.ProductUser, 0)
 	user.Address_Details = make([]models.Address, 0)
 	user.Order_Status = make([]models.Order, 0)
@@ -76,6 +77,7 @@ func createUser(c *fiber.Ctx, user *models.User) error {
 
 	_, err = config.GetUserCollection().InsertOne(ctx, user)
 	if err != nil {
+		log.Println("Error inserting user:", err.Error())
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Can't create user"})
 	}
 	return c.Status(fiber.StatusCreated).JSON(fiber.Map{"message": "User registered successfully!"})

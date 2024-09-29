@@ -19,6 +19,9 @@ func CreateProduct(c *fiber.Ctx) error {
 	if err := c.BodyParser(&products); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Invalid input"})
 	}
+	if products.Product_Name == "" || products.Price <= 0 {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "Product name and price are required"})
+	}
 	products.Product_ID = primitive.NewObjectID()
 	_, err := config.GetProductCollection().InsertOne(ctx, products)
 	if err != nil {
@@ -27,7 +30,7 @@ func CreateProduct(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusCreated).JSON(fiber.Map{"message": "Add product successfully!"})
 }
 
-func SearchProducts(c *fiber.Ctx) error {
+func GetAllProducts(c *fiber.Ctx) error {
 	var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)
 	defer cancel()
 
