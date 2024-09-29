@@ -19,6 +19,7 @@ http://localhost:8000/users/register
 
 ```
 Respone should be "User registered successfully!"
+
 If user already exists respone should be "Email already exists"
 
 - LOGIN (POST METHOD)
