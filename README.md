@@ -7,7 +7,7 @@ go run .
 
 - REGISTER (POST METHOD)
 
-http://localhost:8000/users/register
+  http://localhost:8000/users/register
 
 ```
 {
@@ -24,7 +24,8 @@ Respone should be "User registered successfully!"
 If user already exists respone should be "Email already exists"
 
 - LOGIN (POST METHOD)
-http://localhost:8000/users/login
+  
+  http://localhost:8000/users/login
 
 ```
 {
