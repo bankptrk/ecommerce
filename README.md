@@ -35,7 +35,8 @@ If user already exists respone should be "Email already exists"
 ```
 
 - CREATE PRODUCT (POST METHOD)
-http://localhost:8000/admin/addproduct
+  
+  http://localhost:8000/admin/addproduct
 
 ```
 {
@@ -47,8 +48,10 @@ http://localhost:8000/admin/addproduct
 ```
 
 - GET ALL PRODUCT (GET METHOD)
-http://localhost:8000/users/products
-respone should be :
+
+  http://localhost:8000/users/products
+  
+  respone should be :
 
 ```
 [
@@ -77,8 +80,10 @@ respone should be :
 ```
 
 - GET PRODUCT BY NAME (GET METHOD)
-ex : http://localhost:8000/users/search?name=Example --> (partial search)
-respone should be :
+
+  ex : http://localhost:8000/users/search?name=Example --> (partial search)
+  
+  respone should be :
 
 ```
 [
@@ -101,7 +106,8 @@ respone should be :
 ```
 
 - ADD ADDRESS (POST METHOD)
-ex : http://localhost:8000/addaddress?id=xxxx
+  
+  ex : http://localhost:8000/addaddress?id=xxxx
 
 ```
 {
@@ -114,7 +120,8 @@ ex : http://localhost:8000/addaddress?id=xxxx
 ```
   
 - UPDATE ADDRESS FOR BILLING (PUT METHOD)
-ex : http://localhost:8000/users/addresses/billing?id=xxxxxx
+
+  ex : http://localhost:8000/users/addresses/billing?id=xxxxxx
 
 ```
 {
@@ -126,6 +133,7 @@ ex : http://localhost:8000/users/addresses/billing?id=xxxxxx
 ```
 
 - UPDATE ADDRESS FOR SHIPPING (PUT METHOD)
+  
   ex : http://localhost:8000/users/addresses/shipping?id=xxxxxx
   
 ```
@@ -139,20 +147,25 @@ ex : http://localhost:8000/users/addresses/billing?id=xxxxxx
 ```
 
 - DELETE ADDRESS (DELETE METHOD)
-ex : http://localhost:8000/users/addresses?id=xxxxxx
+
+  ex : http://localhost:8000/users/addresses?id=xxxxxx
 
 
 - ADD PRODUCT TO CART (POST METHOD)
-ex : http://localhost:8000/users/cart?pid=xxxxxx&uid=xxxxxx
+  
+  ex : http://localhost:8000/users/cart?pid=xxxxxx&uid=xxxxxx
 
 
 - DELETE ITEM FROM CART (DELETE METHOD)
-ex : http://localhost:8000/users/cart/item?pid=xxxxxx&uid=xxxxxx
+  
+  ex : http://localhost:8000/users/cart/item?pid=xxxxxx&uid=xxxxxx
 
 
 - GET ITEM FROM CART (GET METHOD)
-ex : http://localhost:8000/users/cart?id=xxxxxx
-respone should be :
+  
+  ex : http://localhost:8000/users/cart?id=xxxxxx
+  
+  respone should be :
 
 ```
 {
@@ -178,7 +191,8 @@ respone should be :
 ```
 
 - BUY PRODUCT FROM CART (POST METHOD)
-ex : http://localhost:8000/users/cart/purchase?id=xxxxxx
+  
+  ex : http://localhost:8000/users/cart/purchase?id=xxxxxx
 
 
 - BUY PRODUCT INSTANTBUY (POST METHOD)
