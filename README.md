@@ -6,7 +6,8 @@ go run .
 ```
 
 - REGISTER (POST METHOD)
-  http://localhost:8000/users/register
+http://localhost:8000/users/register
+
 ```
 {
     "first_name":"bank",
@@ -21,7 +22,8 @@ Respone should be "User registered successfully!"
 If user already exists respone should be "Email already exists"
 
 - LOGIN (POST METHOD)
-  http://localhost:8000/users/login
+http://localhost:8000/users/login
+
 ```
 {
     "email":"bankptrk@gmail.com",
@@ -30,7 +32,8 @@ If user already exists respone should be "Email already exists"
 ```
 
 - CREATE PRODUCT (POST METHOD)
-  http://localhost:8000/admin/addproduct
+http://localhost:8000/admin/addproduct
+
 ```
 {
   "product_name":"example product",
@@ -41,8 +44,9 @@ If user already exists respone should be "Email already exists"
 ```
 
 - GET ALL PRODUCT (GET METHOD)
-  http://localhost:8000/users/products
-respone should be : 
+http://localhost:8000/users/products
+respone should be :
+
 ```
 [
     {
@@ -70,8 +74,9 @@ respone should be :
 ```
 
 - GET PRODUCT BY NAME (GET METHOD)
-  ex : http://localhost:8000/users/search?name=Example --> (partial search)
+ex : http://localhost:8000/users/search?name=Example --> (partial search)
 respone should be :
+
 ```
 [
     {
@@ -93,7 +98,8 @@ respone should be :
 ```
 
 - ADD ADDRESS (POST METHOD)
-  ex : http://localhost:8000/addaddress?id=xxxx
+ex : http://localhost:8000/addaddress?id=xxxx
+
 ```
 {
     "house_name": "4/40",
@@ -105,7 +111,7 @@ respone should be :
 ```
   
 - UPDATE ADDRESS FOR BILLING (PUT METHOD)
-  ex : http://localhost:8000/users/addresses/billing?id=xxxxxx
+ex : http://localhost:8000/users/addresses/billing?id=xxxxxx
 
 ```
 {
@@ -130,20 +136,21 @@ respone should be :
 ```
 
 - DELETE ADDRESS (DELETE METHOD)
-  ex : http://localhost:8000/users/addresses?id=xxxxxx
+ex : http://localhost:8000/users/addresses?id=xxxxxx
 
 
 - ADD PRODUCT TO CART (POST METHOD)
-  ex : http://localhost:8000/users/cart?pid=xxxxxx&uid=xxxxxx
+ex : http://localhost:8000/users/cart?pid=xxxxxx&uid=xxxxxx
 
 
 - DELETE ITEM FROM CART (DELETE METHOD)
-  ex : http://localhost:8000/users/cart/item?pid=xxxxxx&uid=xxxxxx
+ex : http://localhost:8000/users/cart/item?pid=xxxxxx&uid=xxxxxx
 
 
 - GET ITEM FROM CART (GET METHOD)
-  ex : http://localhost:8000/users/cart?id=xxxxxx
+ex : http://localhost:8000/users/cart?id=xxxxxx
 respone should be :
+
 ```
 {
     "total": 2469,
@@ -168,12 +175,8 @@ respone should be :
 ```
 
 - BUY PRODUCT FROM CART (POST METHOD)
-  ex : http://localhost:8000/users/cart/purchase?id=xxxxxx
+ex : http://localhost:8000/users/cart/purchase?id=xxxxxx
 
 
 - BUY PRODUCT INSTANTBUY (POST METHOD)
-  ex : http://localhost:8000/users/cart/instant-buy?uid=xxxxxx&pid=xxxxxx
-respone should be :
-```
-
-```
+ex : http://localhost:8000/users/cart/instant-buy?uid=xxxxxx&pid=xxxxxx
