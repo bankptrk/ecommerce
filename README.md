@@ -196,4 +196,5 @@ If user already exists respone should be "Email already exists"
 
 
 - BUY PRODUCT INSTANTBUY (POST METHOD)
-ex : http://localhost:8000/users/cart/instant-buy?uid=xxxxxx&pid=xxxxxx
+  
+  ex : http://localhost:8000/users/cart/instant-buy?uid=xxxxxx&pid=xxxxxx
